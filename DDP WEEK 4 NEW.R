@@ -2,6 +2,8 @@ library(shiny)
 library(ggplot2)
 #library(dplyr)
 
+# This is the R Shiny App code combining the Server/Ui code.This can be run using the "Run App" button
+
 # Read Data
 GlobalData <- read.csv("./data/GLBTs_dSST.csv", sep = ',', stringsAsFactors = TRUE)
 NorthPoleData <- read.csv("./data/NHTs_dSST.csv", sep = ',', stringsAsFactors = TRUE)

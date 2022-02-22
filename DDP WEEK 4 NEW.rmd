@@ -57,7 +57,7 @@ GlobalData[1:10, ]
 
 ## Application
 
-URL for Shiny application is http://127.0.0.1:3004
+URL for Shiny application is https://sandeeprangarajen.shinyapps.io/Data_Science_Week_3/
 
 The Application contains :
 

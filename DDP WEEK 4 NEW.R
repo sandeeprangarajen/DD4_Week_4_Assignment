@@ -2,13 +2,15 @@ library(shiny)
 library(ggplot2)
 #library(dplyr)
 
-# This is the R Shiny App code combining the Server/Ui code.This can be run using the "Run App" button
+# THis is the Shiny App code that has both Server/Ui code.
+#Rather than provide the relative code it is better to have the direct source of data. This way Shiny Server is able to identify the data globally
+# Read Data.
 
-# Read Data
-GlobalData <- read.csv("./data/GLBTs_dSST.csv", sep = ',', stringsAsFactors = TRUE)
-NorthPoleData <- read.csv("./data/NHTs_dSST.csv", sep = ',', stringsAsFactors = TRUE)
-SouthPoleData <- read.csv("./data/SHTs_dSST.csv", sep = ',', stringsAsFactors = TRUE)
+GlobalData <- read.csv("https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv", stringsAsFactors = FALSE, skip=1)
+NorthPoleData <- read.csv("https://data.giss.nasa.gov/gistemp/tabledata_v4/SH.Ts+dSST.csv", stringsAsFactors = FALSE, skip=1)
+SouthPoleData <- read.csv("https://data.giss.nasa.gov/gistemp/tabledata_v4/NH.Ts+dSST.csv", stringsAsFactors = FALSE, skip=1)
 
+print(GlobalData)
 
 # Define UI for application that draws a plot
 ui <- fluidPage(
@@ -27,7 +29,7 @@ ui <- fluidPage(
       br(),   br(),
       #------------------------------------------------------------------
       # Add Variable for Year Selection
-      sliderInput("YearRange", "Select Year Range : ", min=2002, max=2022, value=c(2002, 2006), step=1
+      sliderInput("YearRange", "Select Year Range : ", min=1880, max=2022, value=c(1880, 1900), step=1
                   
       ),
       
@@ -65,9 +67,6 @@ ui <- fluidPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-  
-  #observeEvent(input$poleInput, {
-   # print(paste0("You have chosen: ", input$poleInput))})
   
   cols <- reactive({
     as.numeric(c(input$var))
@@ -143,8 +142,6 @@ server <- function(input, output) {
   
   
 }
-
-
 
 # Run the application 
 shinyApp(ui = ui, server = server)

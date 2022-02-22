@@ -1,0 +1,82 @@
+---
+title: "Developing Data Products Week 4 Assignment"
+author: "Sandeep Rangarajen"
+date: "21/02/2022"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+  beamer_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## This is the "Developing Data Products Week 4 Assignment" and is part of the Data Science Certification programme
+
+## <span style="color:blue">First Objective</span>:
+
+The files are available at Github repository https://github.com/sandeeprangarajen/DD4_Week_4_Assignment
+
+
+## <span style="color:blue">Second Objective</span>:
+
+The presentation is available at Rpubs https://rpubs.com/sandeeprangarajen/869237
+
+## Introduction
+
+Background, History and Updates:
+The basic GISS temperature analysis scheme was defined in the late 1970s by James Hansen when a method of estimating global temperature change was needed for comparison with one-dimensional global climate models
+
+The following data set have been downloaded from the site
+
+
+Global-mean monthly, seasonal, and annual means, 2002-present, updated through most recent month: TXT, CSV
+
+Northern Hemisphere-mean monthly, seasonal, and annual means, 2002-present, updated through most recent month: TXT, CSV
+
+Southern Hemisphere-mean monthly, seasonal, and annual means, 2002-present, updated through most recent month: TXT, CSV
+
+## Dataset
+
+https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv
+
+https://data.giss.nasa.gov/gistemp/tabledata_v4/NH.Ts+dSST.csv
+
+https://data.giss.nasa.gov/gistemp/tabledata_v4/SH.Ts+dSST.csv
+
+<span style="color:blue">Printing sample 10 rows of Global Data file</span>:
+```{r cars}
+GlobalData <- read.csv("./data/GLBTs_dSST.csv", sep = ',', stringsAsFactors = TRUE)
+NorthPoleData <- read.csv("./data/NHTs_dSST.csv", sep = ',', stringsAsFactors = TRUE)
+SouthPoleData <- read.csv("./data/SHTs_dSST.csv", sep = ',', stringsAsFactors = TRUE)
+GlobalData[1:10, ] 
+```
+
+## Application
+
+URL for Shiny application is http://127.0.0.1:3004
+
+The Application contains :
+
+<span style="color:blue">**Left Pane**</span>:
+
+- Select data options using radio buttons from North Pole, South Pole or Global Data
+- Select Year Range using Slider Range. Data Range contains minimum year as 2002 and maximum year as 2022.
+- Select Variable from Data set. This is a multiple selection text field which contains months from January to December.
+
+
+
+<span style="color:blue">**Main Panel**</span>
+
+There are four panes in main panel as below :
+
+- <span style="color:red">**Summary**</span> : This displays Summary for the data as per user selection.
+
+- <span style="color:red">**Structure**</span> : This displays Structure for the data as per user selection.
+
+- <span style="color:red">**Data**</span> : This displays Data Frame for the user selected options.
+
+- <span style="color:red">**Plot**</span>: : This displays plot for corresponding data frame

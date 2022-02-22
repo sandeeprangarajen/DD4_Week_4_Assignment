@@ -6,7 +6,7 @@ This is Coursera Developing Data Products Week 4 Assignment.
 
 ### R code is available at at URL https://github.com/sandeeprangarajen/DD4_Week_4_Assignment
 
-### Shiny Application is available at IP http://127.0.0.1:3004/
+### Shiny Application is available at IP https://sandeeprangarajen.shinyapps.io/Data_Science_Week_3/
 
 ## The Second objective is to create Reproducible Pitch :
 
